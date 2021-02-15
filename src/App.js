@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <h1>Top 100 Starred Github Repos</h1>
-      <div className="cards">
+      <main className="cards">
         {repos.map(repo => (
           <Card
             key={repo.id}
@@ -27,7 +27,7 @@ function App() {
             url={repo.html_url}
           />
         ))}
-      </div>
+      </main>
     </div>
   );
 }
