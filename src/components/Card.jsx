@@ -16,11 +16,19 @@ const Card = props => {
 
   return (
     <div className="card">
-      <p>{name}</p>
-      <p>{stars} stars</p>
+      <p className="repo-title">{name}</p>
+      <p>&#9734; {stars}</p>
       <a href={url}>{url}</a>
-      <p onClick={showCommits}>Latest Commits</p>
-      {showModal && <Modal commits={recentCommits} title={"Recent Commits"} />}
+      <a href="#" onClick={showCommits} className="recent-commits">
+        View recent commits
+      </a>
+      {showModal && (
+        <Modal
+          showModal={setShowModal}
+          commits={recentCommits}
+          title={"Commits from the last 24 hours"}
+        />
+      )}
     </div>
   );
 };

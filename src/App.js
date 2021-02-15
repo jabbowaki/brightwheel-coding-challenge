@@ -16,14 +16,18 @@ function App() {
 
   return (
     <div className="App">
-      {repos.map(repo => (
-        <Card
-          apiUrl={repo.url}
-          name={repo.name}
-          stars={repo.stargazers_count}
-          url={repo.html_url}
-        />
-      ))}
+      <h1>Top 100 Starred Github Repos</h1>
+      <div className="cards">
+        {repos.map(repo => (
+          <Card
+            key={repo.id}
+            apiUrl={repo.url}
+            name={repo.name}
+            stars={repo.stargazers_count}
+            url={repo.html_url}
+          />
+        ))}
+      </div>
     </div>
   );
 }

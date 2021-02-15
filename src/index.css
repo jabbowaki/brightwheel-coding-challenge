@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.App {
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -23,6 +23,13 @@ code {
   margin: 10px;
   width: 375px;
   padding: 20px;
+}
+
+.card:hover,
+.card:focus {
+  border-color: lightgray;
+  /* text-decoration: none; */
+  cursor: pointer;
 }
 
 .modal {
@@ -53,4 +60,34 @@ code {
   border-radius: 5px;
   max-height: calc(100vh - 210px);
   overflow-y: auto;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right; /* Positioned to the right of the parent container whichever size it is */
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.recent-commits {
+  display: block;
+  text-decoration: none;
+  color: #5f5f5f;
+  padding-top: 16px;
+}
+
+.repo-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.commit-content {
+  border-bottom: 1px #e6e1e1 solid;
 }
