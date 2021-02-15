@@ -1,5 +1,7 @@
+import PropTypes from "prop-types";
+
 const Modal = props => {
-  const { showModal, commits, title } = props;
+  const { showModal, commits, noDataMessage, title } = props;
   return (
     <div className="modal">
       <div className="modal-content">
@@ -16,11 +18,18 @@ const Modal = props => {
             </div>
           ))
         ) : (
-          <p>No recent commits</p>
+          <p>{noDataMessage}</p>
         )}
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  showModal: PropTypes.func,
+  commits: PropTypes.array,
+  noDataMessage: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default Modal;

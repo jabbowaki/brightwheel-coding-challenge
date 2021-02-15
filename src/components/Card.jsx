@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { getRecentCommits } from "../services/githubEndpoints";
 import { yesterday } from "../utilities";
 import Modal from "./Modal";
@@ -10,6 +11,8 @@ const Card = props => {
 
   const showCommits = async () => {
     const commits = await getRecentCommits(apiUrl, yesterday.toISOString());
+
+    // in a perfect world, I would flatten this data so that Modal doesn't have to map through a nested object
     setRecentCommits(commits);
     setShowModal(true);
   };
@@ -26,11 +29,19 @@ const Card = props => {
         <Modal
           showModal={setShowModal}
           commits={recentCommits}
-          title={"Commits from the last 24 hours"}
+          title="Commits from the last 24 hours"
+          noDataMessage="No recent commits"
         />
       )}
     </div>
   );
+};
+
+Card.propTypes = {
+  apiUrl: PropTypes.string,
+  name: PropTypes.string,
+  stars: PropTypes.number,
+  url: PropTypes.string
 };
 
 export default Card;
