@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       {repos.map(repo => (
         <Card
+          apiUrl={repo.url}
           name={repo.name}
           stars={repo.stargazers_count}
           url={repo.html_url}
